@@ -349,15 +349,14 @@ document.addEventListener('keydown', function (e) {
     }
 });
 
-// Copia el número de cuenta de la Mesa de Regalos (sin enlaces externos)
-function copyAccount() {
-    const el = document.getElementById('giftAccount');
+// Copia el número de cuenta o la cédula de la Mesa de Regalos
+function copyField(id, btn, label) {
+    const el = document.getElementById(id);
     if (!el) return;
-    const text = el.textContent.replace(/\s+/g, '');
+    const text = el.textContent.trim();
     const done = () => {
-        showToast('¡Copiado!', 'Número de cuenta: ' + text);
-        const b = document.querySelector('.btn-copy-icon');
-        if (b) { b.classList.add('copied'); setTimeout(() => b.classList.remove('copied'), 1500); }
+        showToast('¡Copiado!', label + ': ' + text);
+        if (btn) { btn.classList.add('copied'); setTimeout(() => btn.classList.remove('copied'), 1500); }
     };
     const fallback = () => {
         const ta = document.createElement('textarea');
@@ -365,7 +364,7 @@ function copyAccount() {
         ta.style.position = 'fixed'; ta.style.opacity = '0';
         document.body.appendChild(ta); ta.select();
         try { document.execCommand('copy'); done(); }
-        catch (e) { showToast('Número de cuenta', text); }
+        catch (e) { showToast(label, text); }
         document.body.removeChild(ta);
     };
     if (navigator.clipboard && window.isSecureContext) {
@@ -374,11 +373,12 @@ function copyAccount() {
         fallback();
     }
 }
+function copyAccount() { copyField('giftAccount', document.querySelector('.btn-copy-icon'), 'Número de cuenta'); }
 
 function confirmAttendance() {
     // Confirmación directa por WhatsApp
-    const phone = '18299229371';
-    const msg = '¡Hola! Confirmo mi asistencia a los XV años de Nashley Isabel De León Rosario el domingo 15 de noviembre en Coco Club, Playa Najayo. 🎉';
+    const phone = '18494083521';
+    const msg = 'Confirmo mi asistencia a los XV de Nashley Isabel De León Rosario.';
     window.open('https://wa.me/' + phone + '?text=' + encodeURIComponent(msg), '_blank');
 }
 

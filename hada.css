@@ -322,3 +322,7 @@ body { color: var(--texto); }
     .carousel-item { height: 500px !important; }
     .carousel-item img { max-height: 480px !important; }
 }
+
+/* Mesa de regalos: cédula con su botón de copiar */
+.gift-sep-gap { margin-top: 1.1rem !important; }
+.gift-card .gift-cedula { font-size: 1.3rem !important; letter-spacing: .08em !important; }
