@@ -261,13 +261,13 @@ body { color: var(--texto); }
 }
 
 /* ---------- Portada de Nashley ---------- */
-.hero-bg { object-position: 72% 58% !important; }
-.hero-section { background-position: 72% 58% !important; }
+.hero-bg { object-position: 55% 35% !important; }
+.hero-section { background-position: 55% 35% !important; }
 .hero-text .name-first { font-size: clamp(3.3rem, 13.5vw, 6.4rem) !important; }
 .hero-text .name-last { font-size: clamp(2rem, 8vw, 3.3rem) !important; }
 .event-place-sub { font-size: .98rem !important; opacity: .85; font-style: italic; }
 
-/* ---------- Ten en cuenta (día de playa) ---------- */
+/* ---------- Ten en cuenta (día de piscina) ---------- */
 .aviso-section {
     width: 100%; max-width: 1100px; margin: 0 auto; box-sizing: border-box;
     padding: 4rem 1rem 4.5rem;
