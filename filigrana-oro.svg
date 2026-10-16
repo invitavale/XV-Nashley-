@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 90" fill="none">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F6E3A6"/>
+      <stop offset=".45" stop-color="#D4AF5A"/>
+      <stop offset="1" stop-color="#9C7429"/>
+    </linearGradient>
+    <radialGradient id="p" cx=".35" cy=".35" r=".7">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset=".55" stop-color="#F6EEE3"/>
+      <stop offset="1" stop-color="#D9C6B0"/>
+    </radialGradient>
+    <radialGradient id="k" cx=".4" cy=".35" r=".7">
+      <stop offset="0" stop-color="#FFE3EA"/>
+      <stop offset=".6" stop-color="#EFA3B7"/>
+      <stop offset="1" stop-color="#C9708A"/>
+    </radialGradient>
+    <g id="half">
+      <!-- barrido principal con espiral -->
+      <path d="M338 47 C372 47 394 33 424 33 C462 33 474 56 455 63 C440 68 430 54 440 47 C447 42 456 47 453 53"
+            stroke="url(#g)" stroke-width="2.6" stroke-linecap="round"/>
+      <!-- floritura exterior -->
+      <path d="M424 33 C470 20 518 22 556 40 C568 46 582 47 594 42"
+            stroke="url(#g)" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M556 40 C566 30 580 28 586 34 C590 39 585 45 579 42"
+            stroke="url(#g)" stroke-width="1.4" stroke-linecap="round"/>
+      <!-- voluta inferior -->
+      <path d="M350 52 C378 60 398 72 432 73 C456 74 474 66 486 56 C494 49 504 52 503 60 C502 66 494 67 491 62"
+            stroke="url(#g)" stroke-width="1.6" stroke-linecap="round"/>
+      <!-- hojitas -->
+      <path d="M488 26 C496 16 510 14 518 18 C510 26 498 29 488 26 Z" fill="url(#g)"/>
+      <path d="M520 30 C530 24 544 26 550 32 C540 37 528 36 520 30 Z" fill="url(#g)"/>
+      <path d="M402 36 C404 26 412 20 420 20 C418 30 410 35 402 36 Z" fill="url(#g)"/>
+      <!-- perlas -->
+      <circle cx="470" cy="24" r="4.2" fill="url(#p)"/>
+      <circle cx="536" cy="50" r="3.4" fill="url(#p)"/>
+      <circle cx="380" cy="64" r="3" fill="url(#p)"/>
+      <!-- destellos rosados -->
+      <circle cx="520" cy="62" r="2.6" fill="url(#k)"/>
+      <circle cx="452" cy="80" r="2.2" fill="url(#k)"/>
+    </g>
+  </defs>
+  <use href="#half"/>
+  <use href="#half" transform="translate(600 0) scale(-1 1)"/>
+  <!-- gema central rosada -->
+  <path d="M300 70 L307 79 L300 88 L293 79 Z" fill="url(#k)" stroke="url(#g)" stroke-width="1"/>
+</svg>

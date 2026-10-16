@@ -1,0 +1,324 @@
+/* =========================================================
+   Tema "Hada del Agua" — verde esmeralda, dorado y destellos rosados
+   Se carga después de CCSB.css y del <style> del index,
+   así que todo lo de aquí manda.
+   ========================================================= */
+:root {
+    --esmeralda-900: #06362A;
+    --esmeralda-800: #0B4A38;
+    --esmeralda-700: #0F5C45;
+    --esmeralda-500: #1F7A5C;
+    --esmeralda-300: #7FB8A2;
+    --menta: #E9F3EE;
+    --marfil: #FBF8F1;
+    --oro: #C9A24A;
+    --oro-claro: #EBD08E;
+    --oro-oscuro: #9C7429;
+    --rosa: #E9A3B5;
+    --rosa-suave: #F7D9E1;
+    --rosa-fuerte: #D27A93;
+    --texto: #1F3B33;
+    --oro-grad: linear-gradient(135deg, #F6E3A6 0%, #D4AF5A 45%, #A57B2C 100%);
+}
+
+html, body { background-color: var(--esmeralda-900) !important; }
+body { color: var(--texto); }
+
+/* ---------- Títulos ---------- */
+.section-title {
+    font-family: 'Great Vibes', 'Playfair Display', cursive !important;
+    font-weight: 400 !important;
+    font-size: clamp(2.35rem, 9vw, 3.6rem) !important;
+    padding-left: 1rem; padding-right: 1rem;
+    line-height: 1.1;
+    color: var(--esmeralda-700) !important;
+    position: relative;
+    padding-bottom: .9rem;
+}
+.section-title::after {
+    content: "";
+    position: absolute; left: 50%; bottom: 0; transform: translateX(-50%);
+    width: 150px; height: 14px;
+    background: url('filigrana-oro.svg') center / contain no-repeat;
+    opacity: .95;
+}
+.section-subtitle { color: #3D5A51 !important; max-width: 34rem; margin-left: auto; margin-right: auto; padding: 0 1rem; }
+
+/* ---------- Fondos de sección ---------- */
+.countdown-section, .gallery-section, .gifts-section {
+    background:
+        radial-gradient(120% 70% at 50% 0%, rgba(233,163,181,.10), transparent 60%),
+        var(--marfil) !important;
+}
+.party-section, .rsvp-section {
+    background:
+        radial-gradient(90% 60% at 100% 100%, rgba(201,162,74,.12), transparent 60%),
+        radial-gradient(80% 60% at 0% 0%, rgba(233,163,181,.12), transparent 60%),
+        var(--menta) !important;
+}
+/* Sección de la fiesta en verde esmeralda profundo */
+.events-section {
+    background:
+        radial-gradient(80% 60% at 20% 10%, rgba(127,184,162,.22), transparent 60%),
+        radial-gradient(70% 60% at 85% 90%, rgba(233,163,181,.14), transparent 60%),
+        linear-gradient(160deg, var(--esmeralda-700) 0%, var(--esmeralda-900) 100%) !important;
+    color: #F4EEDC !important;
+}
+.events-section .event-title { color: var(--oro-claro) !important; font-family: 'Great Vibes', cursive !important; font-weight: 400 !important; font-size: clamp(2.4rem, 8vw, 3rem) !important; }
+.events-section .event-title::before,
+.events-section .event-title::after { background: linear-gradient(90deg, transparent, var(--oro), transparent) !important; }
+.events-section .event-details h4 { color: var(--oro-claro) !important; letter-spacing: .18em; text-transform: uppercase; font-size: .85rem; font-weight: 600; }
+.events-section .event-details p { color: #F4EEDC !important; font-family: 'Playfair Display', serif; font-size: 1.15rem; }
+.events-section .event-punctuality { color: var(--rosa) !important; font-size: .95rem !important; }
+.events-section .event-icon { width: 9rem !important; height: 5.5rem !important; filter: drop-shadow(0 6px 14px rgba(0,0,0,.35)) !important; }
+
+/* Bordes sombreados verdes entre secciones */
+.countdown-section, .events-section, .gallery-section, .party-section, .gifts-section, .rsvp-section {
+    box-shadow: 0 10px 28px -14px rgba(6,54,42,.45) !important;
+    overflow: hidden;
+}
+
+/* ---------- Separadores: filigrana dorada + concha con perla ---------- */
+.section-divider .divider-art {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(520px, 88vw);
+    display: flex; align-items: center; justify-content: center;
+}
+.section-divider .div-fil { position: static !important; transform: none !important; width: 100% !important; height: auto; filter: drop-shadow(0 2px 3px rgba(6,54,42,.25)); }
+.section-divider .div-shell {
+    position: absolute !important; left: 50% !important; top: 50% !important;
+    transform: translate(-50%, -58%) !important;
+    width: min(96px, 22vw) !important; height: auto;
+    filter: drop-shadow(0 4px 8px rgba(6,54,42,.35));
+}
+
+/* ---------- Guirnalda de portada ---------- */
+.top-garland { top: -60px !important; width: min(620px, 96vw) !important; filter: drop-shadow(0 6px 12px rgba(0,0,0,.35)); }
+@media (max-width: 768px) { .top-garland { top: -34px !important; width: min(440px, 104vw) !important; } }
+
+/* Portada: velo esmeralda abajo para leer el nombre */
+.hero-overlay { background: linear-gradient(to top, rgba(6,54,42,.78) 0%, rgba(6,54,42,.30) 34%, rgba(0,0,0,0) 56%) !important; }
+.hero-text .names { color: #FFF6DC !important; text-shadow: 0 2px 16px rgba(6,54,42,.85), 0 0 22px rgba(235,208,142,.45), 0 1px 3px rgba(0,0,0,.5) !important; }
+.hero-text .names::after { background: var(--oro-grad) !important; height: 1.5px !important; box-shadow: 0 0 8px rgba(235,208,142,.7) !important; }
+.hero-phrase { color: #FDF8EC !important; text-shadow: 0 1px 10px rgba(6,54,42,.9) !important; }
+
+/* ---------- Bienvenida ---------- */
+#welcomeModal {
+    background:
+        radial-gradient(70% 50% at 50% 30%, rgba(127,184,162,.30), transparent 70%),
+        radial-gradient(60% 40% at 80% 85%, rgba(233,163,181,.16), transparent 70%),
+        linear-gradient(170deg, #0D533F 0%, #06362A 100%) !important;
+    backdrop-filter: none !important;
+    overflow-y: auto;
+}
+.welcome-hero { padding: 1.25rem 1.25rem 2rem !important; max-width: 520px !important; }
+.welcome-fairy {
+    display: block; width: min(165px, 39vw); height: auto; margin: 0 auto .4rem;
+    filter: drop-shadow(0 10px 24px rgba(0,0,0,.35));
+    animation: hada-flota 6s ease-in-out infinite;
+}
+@media (max-height: 640px) { .welcome-fairy { width: min(115px, 30vw); } }
+.welcome-fil { display: block; width: 210px; margin: .2rem auto .7rem; }
+.welcome-title { color: var(--oro-claro) !important; font-family: 'Playfair Display', serif !important; font-weight: 500 !important; letter-spacing: .04em; text-shadow: 0 2px 12px rgba(0,0,0,.35); }
+.welcome-note { color: #BFD8CE !important; font-style: italic; font-family: 'Playfair Display', serif; }
+.btn-gold {
+    background: var(--oro-grad) !important; color: #2E2410 !important;
+    border: 1px solid #F6E3A6 !important; font-weight: 600 !important;
+    box-shadow: 0 8px 22px -8px rgba(0,0,0,.5), 0 0 0 4px rgba(235,208,142,.15) !important;
+}
+.btn-gold-outline { color: var(--oro-claro) !important; border: 1px solid var(--oro) !important; }
+.btn-gold-outline:hover { background: rgba(235,208,142,.12) !important; }
+
+@keyframes hada-flota {
+    0%, 100% { transform: translateY(0) rotate(-.6deg); }
+    50% { transform: translateY(-10px) rotate(.6deg); }
+}
+
+/* ---------- Botones ---------- */
+.btn-wedding, .party-card button, .gifts-container button, .rsvp-container button {
+    background: linear-gradient(135deg, var(--esmeralda-500) 0%, var(--esmeralda-800) 100%) !important;
+    color: #FFF6DC !important;
+    border: 1px solid var(--oro) !important;
+    box-shadow: 0 8px 22px -10px rgba(6,54,42,.7), inset 0 1px 0 rgba(255,255,255,.18) !important;
+    letter-spacing: .02em;
+}
+.btn-wedding:hover, .party-card button:hover, .gifts-container button:hover, .rsvp-container button:hover {
+    box-shadow: 0 12px 30px -10px rgba(6,54,42,.75), 0 0 0 4px rgba(233,163,181,.25) !important;
+}
+.events-section .btn-wedding { background: var(--oro-grad) !important; color: #2E2410 !important; border-color: #F6E3A6 !important; }
+
+.carousel-btn {
+    background: rgba(251,248,241,.92) !important; color: var(--esmeralda-700) !important;
+    border: 1px solid var(--oro) !important; padding: 0 !important; font-size: 1.1rem !important;
+}
+
+/* ---------- Cuenta regresiva y padres ---------- */
+.countdown-number {
+    font-family: 'Playfair Display', serif; color: var(--esmeralda-700) !important;
+}
+.countdown-label { color: var(--rosa-fuerte) !important; letter-spacing: .14em !important; font-weight: 600 !important; }
+.countdown-item:not(:last-child)::after { background: linear-gradient(to bottom, transparent, var(--oro), transparent) !important; }
+.parents-title { color: var(--esmeralda-700) !important; font-size: 1.9rem !important; }
+.parent-name { color: var(--texto) !important; font-size: .95rem !important; }
+.parents-amp { color: var(--rosa-fuerte) !important; font-size: 1.35rem !important; }
+.parents-ornament { color: var(--rosa) !important; font-size: .8rem !important; }
+.parents-intro { color: #5F7D72 !important; font-size: .82rem !important; }
+
+/* ---------- Galería: marco dorado ---------- */
+.framed-photo {
+    background: #E9D49A !important;
+    border-color: #D4B064 !important;
+    box-shadow: 0 14px 30px -10px rgba(6,54,42,.55), 0 0 0 1px rgba(156,116,41,.5) !important;
+}
+.carousel-counter { color: var(--esmeralda-500) !important; font-family: 'Playfair Display', serif; font-style: italic; }
+
+/* Íconos SVG en verde con acentos */
+.camera-icon svg rect, .party-icon svg rect { fill: var(--esmeralda-700); }
+.camera-icon, .party-icon, .gift-icon, .whatsapp-icon, .event-icon { filter: drop-shadow(0 6px 12px rgba(6,54,42,.25)) !important; }
+
+/* ---------- Tarjetas ---------- */
+.party-card {
+    background: linear-gradient(180deg, #FFFDF8 0%, var(--marfil) 100%) !important;
+    border: 1px solid rgba(201,162,74,.55) !important;
+    position: relative;
+    box-shadow: 0 16px 34px -20px rgba(6,54,42,.55) !important;
+}
+.party-card::before {
+    content: ""; position: absolute; inset: 7px; border-radius: 1.6rem;
+    border: 1px solid rgba(233,163,181,.45); pointer-events: none;
+}
+.party-card h3 { color: var(--esmeralda-700) !important; font-family: 'Playfair Display', serif; font-size: 1.35rem !important; }
+.party-card p { color: #3D5A51 !important; }
+
+/* ---------- Decoraciones de esquina ---------- */
+.has-deco { position: relative; }
+.has-deco > *:not(.deco) { position: relative; z-index: 1; }
+.deco {
+    position: absolute; z-index: 0; pointer-events: none; user-select: none;
+    width: clamp(70px, 16vw, 130px); height: auto; opacity: .92;
+    filter: drop-shadow(0 4px 8px rgba(6,54,42,.18));
+    animation: deco-mece 7s ease-in-out infinite;
+}
+.deco-sm { width: clamp(46px, 10vw, 80px); }
+.deco-tl { top: 1.6rem; left: -10px; transform-origin: top left; }
+.deco-tr { top: 1.6rem; right: -6px; transform-origin: top right; }
+.deco-bl { bottom: -8px; left: -6px; transform-origin: bottom left; animation-delay: -2s; }
+.deco-br { bottom: -6px; right: -8px; transform-origin: bottom right; animation-delay: -4s; }
+.events-section .deco-br.deco-sm { bottom: 1.2rem; right: 1.2rem; }
+@media (max-width: 768px) {
+    .deco { opacity: .8; width: clamp(56px, 15vw, 110px); }
+    .deco-sm { width: clamp(40px, 10vw, 70px); }
+    .deco-tl, .deco-tr { top: .6rem; }
+}
+@keyframes deco-mece {
+    0%, 100% { transform: rotate(-2deg); }
+    50% { transform: rotate(2deg); }
+}
+
+/* ---------- Pie de página ---------- */
+.footer {
+    background:
+        radial-gradient(70% 60% at 50% 0%, rgba(127,184,162,.25), transparent 70%),
+        linear-gradient(170deg, var(--esmeralda-700) 0%, var(--esmeralda-900) 100%) !important;
+    padding-top: 2.5rem !important; padding-bottom: 3rem !important;
+}
+.footer-fairy { display: block; width: min(75px, 19vw); height: auto; margin: 0 auto .6rem; filter: drop-shadow(0 10px 22px rgba(0,0,0,.35)); animation: hada-flota 6s ease-in-out infinite; }
+.footer-content p { color: #CFE3DA !important; font-family: 'Playfair Display', serif; font-style: italic; }
+.footer-content h3 { color: var(--oro-claro) !important; font-family: 'Great Vibes', cursive !important; font-weight: 400; font-size: clamp(2.1rem, 8vw, 2.6rem) !important; line-height: 1.15; }
+.footer-date { color: var(--rosa) !important; letter-spacing: .2em; text-transform: uppercase; font-size: .78rem !important; }
+
+/* ---------- Modales ---------- */
+.dresscode-modal {
+    background: linear-gradient(160deg, #0F5C45 0%, #06362A 100%) !important;
+    border: 1px solid var(--oro) !important;
+}
+.modal-title-dark { color: var(--oro-claro) !important; font-family: 'Great Vibes', cursive; font-weight: 400; font-size: 2.3rem !important; }
+.modal-text-dark { color: #F4EEDC !important; }
+.modal-close:hover { color: var(--rosa) !important; }
+.gifts-modal { background: var(--marfil) !important; border: 1px solid var(--oro) !important; }
+.gifts-modal-title { font-family: 'Great Vibes', cursive !important; font-weight: 400; font-size: 2.6rem !important; color: var(--esmeralda-700) !important; }
+.gift-card { border-color: rgba(201,162,74,.5) !important; }
+.gift-card::before { border-color: rgba(233,163,181,.7) !important; }
+.gift-card .gift-label { color: var(--rosa-fuerte) !important; }
+.gift-card .gift-account { color: var(--esmeralda-700) !important; }
+.gift-card .gift-sep { background: var(--oro-grad) !important; }
+.btn-copy-icon { background: linear-gradient(135deg, var(--esmeralda-500), var(--esmeralda-800)) !important; }
+.btn-copy-icon.copied { background: var(--rosa-fuerte) !important; }
+.btn-modal-secondary { color: var(--esmeralda-700) !important; border-color: var(--oro) !important; }
+.gift-thanks { color: var(--rosa-fuerte) !important; }
+.toast { background: linear-gradient(135deg, rgba(15,92,69,.96), rgba(6,54,42,.96)) !important; border-color: var(--oro) !important; }
+
+/* Reproductor */
+.music-button { background: var(--oro-grad) !important; border: 1px solid #F6E3A6 !important; }
+
+/* ---------- Capa de destellos ---------- */
+#sparkles { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 5; }
+
+@media (prefers-reduced-motion: reduce) {
+    .deco, .welcome-fairy, .footer-fairy { animation: none !important; }
+    #sparkles { display: none; }
+}
+
+/* ---------- Portada de Nashley ---------- */
+.hero-bg { object-position: 72% 58% !important; }
+.hero-section { background-position: 72% 58% !important; }
+.hero-text .name-first { font-size: clamp(3.3rem, 13.5vw, 6.4rem) !important; }
+.hero-text .name-last { font-size: clamp(2rem, 8vw, 3.3rem) !important; }
+.event-place-sub { font-size: .98rem !important; opacity: .85; font-style: italic; }
+
+/* ---------- Ten en cuenta (día de playa) ---------- */
+.aviso-section {
+    width: 100%; max-width: 1100px; margin: 0 auto; box-sizing: border-box;
+    padding: 4rem 1rem 4.5rem;
+    text-align: center; color: #F4EEDC;
+    background:
+        radial-gradient(70% 55% at 15% 10%, rgba(127,184,162,.25), transparent 65%),
+        radial-gradient(60% 50% at 90% 95%, rgba(233,163,181,.16), transparent 65%),
+        linear-gradient(165deg, var(--esmeralda-700) 0%, var(--esmeralda-900) 100%);
+    box-shadow: 0 10px 28px -14px rgba(6,54,42,.45);
+    overflow: hidden;
+}
+@media (max-width: 768px) { .aviso-section { width: 100vw; max-width: 100vw; padding: 3.25rem 1rem 3.75rem; } }
+.aviso-container { max-width: 34rem; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 1.1rem; }
+.aviso-section .section-title { color: var(--oro-claro) !important; margin-bottom: .2rem; }
+.aviso-lead { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.2rem; color: var(--rosa); }
+.aviso-items { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin: .4rem 0 .2rem; }
+.aviso-item {
+    display: flex; flex-direction: column; align-items: center; gap: .55rem;
+    width: 9.5rem; padding: 1.2rem .8rem 1rem;
+    border: 1px solid rgba(235,208,142,.55); border-radius: 1.4rem;
+    background: rgba(255,255,255,.06);
+    font-family: 'Playfair Display', serif; font-size: 1.02rem; color: #FFF6DC;
+}
+.aviso-icon {
+    width: 4.6rem; height: 4.6rem; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: #3A2C0E; background: var(--oro-grad);
+    box-shadow: 0 8px 18px -8px rgba(0,0,0,.5), 0 0 0 4px rgba(235,208,142,.18);
+}
+.aviso-icon svg { width: 2.6rem; height: 2.6rem; }
+.aviso-text { max-width: 28rem; line-height: 1.7; color: #E3EFE9; font-size: 1.02rem; }
+
+/* ---------- Carrusel: fotos más grandes en el mismo espacio ---------- */
+/* El ícono de cámara se quita y ese espacio pasa a las fotos */
+.gallery-section .camera-icon { display: none !important; }
+.gallery-section .section-subtitle { margin-bottom: 1.2rem !important; }
+.carousel-counter { margin-top: .4rem !important; }
+@media (min-width: 769px) {
+    .carousel-container { max-width: 980px !important; }
+    .carousel-item { height: 470px !important; }
+    .carousel-item img { max-height: 440px !important; }
+}
+@media (max-width: 768px) {
+    .carousel-item { height: 520px !important; padding: 0 !important; }
+    .carousel-item img { max-height: 500px !important; }
+    .framed-photo { margin: 8px auto 10px !important; max-width: calc(100% - 12px) !important; border-width: 4px !important; border-bottom-width: 14px !important; }
+    .carousel-btn { width: 38px !important; height: 38px !important; }
+    .carousel-prev { left: 4px !important; }
+    .carousel-next { right: 4px !important; }
+}
+@media (max-width: 480px) {
+    .carousel-item { height: 500px !important; }
+    .carousel-item img { max-height: 480px !important; }
+}

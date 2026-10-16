@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Nashley Isabel De León Rosario - Mis XV Años</title>
+    <link rel="preload" as="image" href="foto0.jpg">
+    <link rel="preload" as="image" href="hada-agua.png">
+    <meta name="theme-color" content="#0B4A38">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preload" href="great-vibes.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="CCSB.css">
+    <style>
+        /* Carrusel: 3 imágenes simultáneamente con foto central destacada */
+        .carousel-track-container {
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+            width: 100%;
+            overflow: visible;
+        }
+        .carousel-item {
+            flex: 0 0 33.333%; /* 3 imágenes por fila en PC */
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0; /* usamos gap del track para separación */
+        }
+        .carousel-item img {
+            display: block;
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 0;
+            box-shadow: 0 10px 24px rgba(15,92,69,0.35);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        /* Marco tipo polaroid ajustado al tamaño real de cada foto:
+           delgado en los tres lados y un poco más grueso en la base. */
+        .framed-photo {
+            width: auto !important;
+            height: auto !important;
+            max-width: 100% !important;
+            max-height: 100% !important;
+            box-sizing: border-box !important;
+            margin: 0 auto;
+            object-fit: contain !important;
+            background: #0F5C45 !important;
+            border: 6px solid #0F5C45 !important;
+            border-bottom-width: 20px !important;
+        }
+
+        @media (min-width: 769px) {
+            .carousel-item.is-center .framed-photo {
+                transform: scale(1.12) rotate(-0.2deg);
+                box-shadow: 0 34px 68px rgba(201,168,93,0.45);
+            }
+        }
+        
+        /* Mobile: una imagen centrada */
+        @media (max-width: 768px) {
+            .carousel-item {
+                flex: 0 0 100% !important; /* 1 imagen por vista en móvil */
+                padding: 0 6px !important;
+                height: 380px !important;
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+            }
+            .carousel-item img {
+                width: auto !important;
+                height: auto !important;
+                max-width: 100% !important;
+                max-height: 380px !important;
+                object-fit: contain !important;
+                transform: none !important;
+            }
+            .framed-photo {
+                border-width: 4px !important;
+                border-bottom-width: 14px !important;
+            }
+            
+            .carousel-track-container {
+                height: auto !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .carousel-item img {
+                width: auto !important;
+                height: auto !important;
+                max-width: 100% !important;
+                max-height: 320px !important;
+                object-fit: contain !important;
+                border-radius: 0;
+                transform: none !important;
+            }
+            .framed-photo {
+                border-width: 3px !important;
+                border-bottom-width: 10px !important;
+            }
+            
+            .carousel-item {
+                flex: 0 0 100% !important;
+                padding: 0 8px !important;
+                height: 320px !important;
+            }
+            
+            .carousel-track-container {
+                height: auto !important;
+            }
+        }
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #fff;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 2;
+            padding: 0 10px;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        /* Nombre en portada: blanco con sombra para que se lea sobre la foto,
+           ubicado en la parte baja (sobre el vestido) sin tapar el rostro */
+        @font-face {
+            font-family: 'Great Vibes';
+            src: url('great-vibes.woff2') format('woff2');
+            font-weight: 400; font-style: normal; font-display: swap;
+        }
+        .hero-content { align-items: flex-end !important; padding-bottom: 7vh !important; min-height: 100svh; }
+        .hero-overlay { background: linear-gradient(to top, rgba(4,38,28,0.55) 0%, rgba(4,38,28,0.18) 32%, rgba(0,0,0,0) 52%) !important; }
+        .hero-text .date-hidden, .hero-text .scroll-indicator { display: none !important; }
+        .hero-text .names {
+            color: #fff !important;
+            font-family: 'Great Vibes', 'Playfair Display', cursive !important;
+            font-weight: 400 !important;
+            line-height: 1 !important;
+            text-shadow: 0 2px 14px rgba(0,0,0,0.55), 0 1px 3px rgba(0,0,0,0.45);
+            display: flex !important; flex-direction: column; align-items: center;
+            padding-bottom: .9rem !important; margin-bottom: 1.1rem !important;
+        }
+        .hero-text .name-first { font-size: clamp(4.2rem, 17vw, 7.5rem); }
+        .hero-text .name-last { font-size: clamp(2.2rem, 8.5vw, 3.6rem); margin-top: -.15em; }
+        .hero-text .names::after { left: 18% !important; right: 18% !important; box-shadow: 0 1px 4px rgba(0,0,0,0.5); }
+        .hero-phrase {
+            max-width: 30rem; margin: 0 auto; padding: 0 1.25rem;
+            font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400;
+            font-size: clamp(1rem, 3.9vw, 1.25rem); line-height: 1.55; color: #fff;
+            text-shadow: 0 1px 8px rgba(0,0,0,0.6);
+        }
+        /* Entrada suave de la portada */
+        .hero-text .names, .hero-phrase { opacity: 0; transform: translateY(18px); transition: opacity 1.4s ease, transform 1.4s ease; }
+        .hero-ready .hero-text .names { opacity: 1; transform: none; }
+        .hero-ready .hero-phrase { opacity: 1; transform: none; transition-delay: .5s; }
+
+        /* Aparición elegante al hacer scroll */
+        .js-reveal .reveal { opacity: 0; transform: translateY(34px); transition: opacity 1s ease, transform 1s cubic-bezier(.2,.7,.2,1); will-change: opacity, transform; }
+        .js-reveal .reveal.is-visible { opacity: 1; transform: none; }
+        @media (prefers-reduced-motion: reduce) {
+            .js-reveal .reveal, .hero-text .names, .hero-phrase { opacity: 1 !important; transform: none !important; transition: none !important; }
+        }
+
+        @media (min-width: 769px) {
+            .hero-bg { object-position: center 8% !important; }
+            .hero-section { background-position: center 8% !important; }
+        }
+
+        /* Colores intercalados: crema / rosa en cada sección */
+        .rsvp-section { background-color: #E9F3EE !important; }
+        .footer { background-color: #FBF8F1 !important; }
+        .footer { padding-top: 3.5rem !important; padding-bottom: 2.5rem !important; }
+        .gifts-container .gift-icon { margin-bottom: 2rem !important; }
+        .gifts-section { padding-bottom: 4.5rem !important; }
+
+        /* Bloque de los padres: detalle pequeño y elegante */
+        .parents-block { max-width: 24rem; margin: 1.35rem auto .35rem; padding: 0 1rem; text-align: center; }
+        .parents-intro {
+            font-family: 'Playfair Display', serif; font-style: italic; color: #5F7D72;
+            font-size: .74rem; line-height: 1.3; letter-spacing: .03em; margin: 0;
+        }
+        .parents-title {
+            font-family: 'Great Vibes', 'Playfair Display', cursive; font-weight: 400;
+            color: #0F5C45; font-size: 1.45rem; line-height: 1.1; margin: 0 0 .1rem;
+        }
+        .parents-names {
+            display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline;
+            column-gap: .35rem; row-gap: 0;
+        }
+        .parent-name { font-family: 'Playfair Display', serif; font-size: .86rem; color: #1F3B33; letter-spacing: .02em; }
+        .parents-amp { font-family: 'Great Vibes', cursive; color: #C9A24A; font-size: 1.1rem; line-height: 1; }
+        .parents-ornament {
+            display: flex; align-items: center; justify-content: center; gap: .55rem;
+            margin: .45rem auto 0; color: #C9A24A; font-size: .58rem; line-height: 1; opacity: .85;
+        }
+        .parents-ornament::before, .parents-ornament::after {
+            content: ""; width: 64px; height: 1px;
+        }
+        .parents-ornament::before { background: linear-gradient(to right, transparent, #E7C97F); }
+        .parents-ornament::after { background: linear-gradient(to left, transparent, #E7C97F); }
+
+        /* Mesa de regalos: ventana con los datos */
+        .gifts-modal {
+            position: relative; width: min(440px, 92%); max-height: 92%; overflow-y: auto;
+            background: #FBF8F1; border-radius: 1.75rem; padding: 2.4rem 1.5rem 1.6rem;
+            text-align: center; box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+            border: 1px solid rgba(15,92,69,0.3);
+        }
+        .gifts-modal .modal-close { color: #0F5C45; }
+        .gifts-modal .modal-close:hover { color: #1F3B33; }
+        .gifts-modal-title {
+            font-family: 'Playfair Display', serif; color: #0F5C45; font-size: 2rem; margin-bottom: .4rem;
+        }
+        .gifts-modal-text { color: #1F3B33; margin-bottom: 1.4rem; line-height: 1.5; }
+        .gift-card {
+            margin: 0 auto 1.4rem; padding: 1.8rem 1.5rem 1.6rem; background: #fff;
+            border: 1px solid rgba(15,92,69,0.22); border-radius: 1.5rem;
+            box-shadow: 0 18px 40px -20px rgba(15,92,69,0.55); position: relative;
+        }
+        .gift-card::before {
+            content: ""; position: absolute; inset: 8px; border-radius: 1.1rem;
+            border: 1px dashed rgba(201,162,74,0.55); pointer-events: none;
+        }
+        .gift-card .gift-label {
+            font-size: .72rem; letter-spacing: .22em; text-transform: uppercase;
+            color: #0F5C45; font-weight: 600; margin-bottom: .3rem;
+        }
+        .gift-card .gift-value {
+            font-family: 'Playfair Display', serif; color: #1F3B33; font-size: 1.3rem; margin-bottom: 1rem;
+        }
+        .gift-card .gift-account {
+            font-family: 'Inter', sans-serif; font-weight: 600; letter-spacing: .12em;
+            font-size: 1.5rem; color: #0F5C45; user-select: all; -webkit-user-select: all;
+        }
+        .gift-account-row { display: flex; align-items: center; justify-content: center; gap: .7rem; }
+        .btn-copy-icon {
+            flex: 0 0 auto; width: 42px; height: 42px; border-radius: 50%; border: none; cursor: pointer;
+            display: inline-flex; align-items: center; justify-content: center; color: #fff;
+            background: linear-gradient(135deg, #0F5C45 0%, #C9A24A 100%);
+            box-shadow: 0 6px 16px -6px rgba(15,92,69,0.7); transition: transform .2s, box-shadow .2s;
+        }
+        .btn-copy-icon:hover { transform: scale(1.08); }
+        .btn-copy-icon:active { transform: scale(.94); }
+        .btn-copy-icon.copied { background: #D27A93; }
+        .gift-card .gift-sep { width: 60px; height: 1px; background: #C9A24A; margin: 0 auto 1rem; }
+        .btn-modal-primary, .btn-modal-secondary {
+            display: block; width: 100%; max-width: 320px; margin: 0 auto .7rem;
+            padding: .85rem 1.5rem; border-radius: 9999px; font-family: 'Inter', sans-serif;
+            font-weight: 600; font-size: 1rem; cursor: pointer; transition: transform .2s, box-shadow .2s;
+        }
+        .btn-modal-primary {
+            border: none; color: #fff; background: linear-gradient(90deg, #0F5C45 0%, #C9A24A 100%);
+            box-shadow: 0 6px 20px -8px rgba(15,92,69,0.6);
+        }
+        .btn-modal-secondary { background: transparent; color: #0F5C45; border: 1.5px solid #C9A24A; }
+        .btn-modal-primary:hover, .btn-modal-secondary:hover { transform: translateY(-2px); }
+        .gift-thanks {
+            margin-top: .6rem; font-family: 'Playfair Display', serif; font-style: italic;
+            color: #0F5C45; font-size: 1.05rem;
+        }
+        .toast { z-index: 10001 !important; }
+        body.modal-open { overflow: hidden; }
+
+        /* Botón de WhatsApp con ícono */
+        .btn-whatsapp { display: inline-flex !important; align-items: center; gap: .6rem; }
+        .btn-whatsapp svg { flex: 0 0 auto; }
+
+        /* Ajuste temporal: mantener altura visible sin tocar el attachment */
+        @media (min-width: 1025px) {
+            .hero-section {
+                background-image: url('foto0.jpg') !important;
+            }
+        }
+
+    </style>
+    <link rel="stylesheet" href="hada.css?v=5">
+</head>
+<body>
+    <div class="main-center">
+        <!-- Modal de Bienvenida -->
+        <div id="welcomeModal" class="modal-overlay">
+            <div class="welcome-hero">
+                <img class="welcome-fairy" src="hada-agua.png" alt="Hada del agua">
+                <img class="welcome-fil" src="filigrana-oro.svg" alt="" aria-hidden="true">
+                <h1 class="welcome-title welcome-title-sm">Bienvenidos a la<br/>invitación de mis<br/>XV Años</h1>
+                <p class="welcome-note">La música de fondo es parte de la experiencia</p>
+                <div class="welcome-actions">
+                    <button id="enterWithMusic" class="btn-gold" onclick="enterWithMusicClick()">Ingresar con música</button>
+                    <button id="enterWithoutMusic" class="btn-gold-outline" onclick="enterWithoutMusicClick()">Ingresar sin música</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reproductor de música -->
+        <div id="musicPlayer" class="music-player" style="display: none;">
+            <button id="musicToggle" class="music-button modern-icon" title="Reproducir/Pausar música">
+                <svg id="volumeIcon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="#0F5C45" stroke="#fff" stroke-width="1"></polygon>
+                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.08" stroke="#0F5C45" stroke-width="2"></path>
+                    <circle cx="6.5" cy="12" r="1" fill="#C9A24A"/>
+                </svg>
+            </button>
+            <audio id="bgMusic" src="musica.mp3" preload="auto" loop playsinline></audio>
+        </div>
+
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <img class="hero-bg" src="foto0.jpg" alt="Portada XV años de Nashley Isabel De León Rosario">
+            <div class="hero-overlay"></div>
+            <div class="top-garland">
+                <img src="guirnalda-hada.png" alt="">
+            </div>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="date date-hidden" aria-hidden="true">15.11.2026</div>
+                    <h1 class="names"><span class="name-first">Nashley Isabel</span><span class="name-last">De León Rosario</span></h1>
+                    <p class="hero-phrase">“Hay momentos que se viven una sola vez en la vida… hoy celebro mis quince primaveras con el corazón lleno de ilusión.”</p>
+                    <div class="scroll-indicator">
+                        <div class="scroll-mouse">
+                            <div class="scroll-wheel"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+        <div class="section-divider" aria-hidden="true">
+            <div class="divider-art"><img class="div-fil" src="filigrana-oro.svg" alt=""><img class="div-shell" src="concha-perla.png" alt=""></div>
+        </div>
+        <!-- Countdown -->
+        <section class="countdown-section has-deco">
+            <img class="deco deco-tl" src="deco-hojas.png" alt="" aria-hidden="true">
+            <img class="deco deco-br" src="deco-concha-rosa.png" alt="" aria-hidden="true">
+            <h2 class="section-title">Faltan</h2>
+            <div class="countdown-container">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">00</div>
+                    <div class="countdown-label">DÍAS</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-label">HORAS</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-label">MINUTOS</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-label">SEGUNDOS</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fecha y Lugar -->
+        <div class="section-divider" aria-hidden="true">
+            <div class="divider-art"><img class="div-fil" src="filigrana-oro.svg" alt=""><img class="div-shell" src="concha-perla.png" alt=""></div>
+        </div>
+        <section class="events-section has-deco">
+            <img class="deco deco-tr" src="deco-mariposa.png" alt="" aria-hidden="true">
+            <img class="deco deco-bl" src="deco-coral.png" alt="" aria-hidden="true">
+            <img class="deco deco-br deco-sm" src="deco-estrella-oro.png" alt="" aria-hidden="true">
+            <div class="events-container events-container-single">
+                <!-- Fiesta de XV -->
+                <div class="event-card">
+                    <div class="event-icon modern-icon">
+                        <img src="tiara-esmeralda.png" alt="Tiara de esmeraldas" class="icon-img">
+                    </div>
+                    <h3 class="event-title">Mis XV Años</h3>
+                    <div class="event-details">
+                        <h4>Día</h4>
+                        <p>Domingo 15 de Noviembre - 10:00 AM</p>
+                        <p class="event-punctuality">Un día de playa, sol y diversión</p>
+                    </div>
+                    <div class="event-details">
+                        <h4>Lugar</h4>
+                        <p>Coco Club</p>
+                        <p class="event-place-sub">Playa Najayo, San Cristóbal</p>
+                    </div>
+                    <button class="btn-wedding" onclick="openLocation('reception')">¿Cómo llegar?</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Photo Gallery -->
+        <div class="section-divider" aria-hidden="true">
+            <div class="divider-art"><img class="div-fil" src="filigrana-oro.svg" alt=""><img class="div-shell" src="concha-perla.png" alt=""></div>
+        </div>
+        <section class="gallery-section has-deco">
+            <img class="deco deco-tr" src="deco-estrella-verde.png" alt="" aria-hidden="true">
+            <img class="deco deco-bl" src="deco-caracol.png" alt="" aria-hidden="true">
+            <div class="gallery-container">
+                <h2 class="section-title">Retratos de<br>mis XV Años</h2>
+                <p class="section-subtitle">Cada foto guarda un pedacito de esta historia que hoy florece</p>
+                
+                <div class="camera-icon modern-icon">
+                    <svg width="70" height="70" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="6" y="18" width="52" height="36" rx="6" fill="#0F5C45"/>
+                        <rect x="24" y="10" width="16" height="10" rx="2" fill="#0F5C45"/>
+                        <circle cx="32" cy="36" r="11" fill="#FBF8F1"/>
+                        <circle cx="32" cy="36" r="6" fill="#0F5C45"/>
+                        <circle cx="48" cy="26" r="2.5" fill="#FBF8F1"/>
+                    </svg>
+                </div>
+                <!-- Carrusel -->
+                <div class="carousel-container">
+                  <button class="carousel-btn carousel-prev" id="prevBtn">❮</button>
+                  <div class="carousel-track-container">
+                    <div class="carousel-track" id="carouselTrack">
+                      <div class="carousel-item">
+                        <img class="framed-photo" src="foto1.jpg" alt="Foto 1 de los XV años">
+                      </div>
+                      <div class="carousel-item">
+                        <img class="framed-photo" src="foto2.jpg" alt="Foto 2 de los XV años">
+                      </div>
+                      <div class="carousel-item">
+                        <img class="framed-photo" src="foto3.jpg" alt="Foto 3 de los XV años">
+                      </div>
+                      <div class="carousel-item">
+                        <img class="framed-photo" src="foto4.jpg" alt="Foto 4 de los XV años">
+                      </div>
+                      <div class="carousel-item">
+                        <img class="framed-photo" src="foto5.jpg" alt="Foto 5 de los XV años">
+                      </div>
+                    </div>
+                  </div>
+                  <button class="carousel-btn carousel-next" id="nextBtn">❯</button>
+                </div>
+
+                <div class="carousel-counter">
+                  <span id="currentSlide">1</span> / <span id="totalSlides">5</span> fotos
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Party Information -->
+        <div class="section-divider" aria-hidden="true">
+            <div class="divider-art"><img class="div-fil" src="filigrana-oro.svg" alt=""><img class="div-shell" src="concha-perla.png" alt=""></div>
+        </div>
+        <section class="party-section has-deco">
+            <img class="deco deco-tl" src="deco-ramo.png" alt="" aria-hidden="true">
+            <img class="deco deco-br" src="deco-flores.png" alt="" aria-hidden="true">
+            <div class="party-container">
+                <h2 class="section-title">Detalles</h2>
+                <p class="section-subtitle">Hagamos juntos una fiesta épica. Aquí algunos detalles a tener en cuenta.</p>
+
+                <div class="party-grid">
+                    <div class="party-card">
+                        <div class="party-icon modern-icon bowtie-icon">
+                            <img src="icono-vestimenta-oro.png" alt="Vestido y traje" class="icon-img">
+                        </div>
+                        <h3>Código de Vestimenta</h3>
+                        <button class="btn-wedding" onclick="showDressCode()">Ver más</button>
+                    </div>
+
+                    <div class="party-card">
+                        <div class="party-icon modern-icon">
+                            <svg width="70" height="70" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="6" y="18" width="52" height="36" rx="6" fill="#0F5C45"/>
+                                <rect x="24" y="10" width="16" height="10" rx="2" fill="#0F5C45"/>
+                                <circle cx="32" cy="36" r="11" fill="#FBF8F1"/>
+                                <circle cx="32" cy="36" r="6" fill="#0F5C45"/>
+                                <circle cx="48" cy="26" r="2.5" fill="#FBF8F1"/>
+                            </svg>
+                        </div>
+                        <h3>Comparte tus Fotos</h3>
+                        <p>Ayúdanos a capturar cada momento, sube las fotos que tomes durante la fiesta.</p>
+                        <button class="btn-wedding" onclick="sharePhotos()">Subir Fotos</button>
+                    </div>
+
+                    <div class="party-card">
+                        <div class="party-icon modern-icon">
+                            <svg width="70" height="70" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="No se permiten niños">
+                                <!-- niño -->
+                                <circle cx="24" cy="21" r="5.5" fill="#0F5C45"/>
+                                <path d="M17.5 29.5c0-1.7 1.3-3 3-3h7c1.7 0 3 1.3 3 3V41h-3.2v10.5h-3.4V43h-.8v8.5h-3.4V41h-2.2z" fill="#0F5C45"/>
+                                <!-- niña -->
+                                <circle cx="41" cy="25" r="4.8" fill="#0F5C45"/>
+                                <path d="M41 30.5c2.4 0 3.6 1.2 4.2 3l3.3 11.5h-4.3v6.5h-2.6V45h-1.2v6.5h-2.6V45h-4.3l3.3-11.5c.6-1.8 1.8-3 4.2-3z" fill="#0F5C45"/>
+                                <!-- señal de prohibido -->
+                                <circle cx="32" cy="32" r="28" stroke="#C9A24A" stroke-width="4.5" fill="none"/>
+                                <line x1="12.2" y1="12.2" x2="51.8" y2="51.8" stroke="#C9A24A" stroke-width="4.5" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3>Celebración sin Niños</h3>
+                        <p>Queremos mucho a los pequeños de la familia, pero esta noche hemos preparado una celebración solo para mayores. Agradecemos de corazón su comprensión.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ten en cuenta: día de playa -->
+        <div class="section-divider" aria-hidden="true">
+            <div class="divider-art"><img class="div-fil" src="filigrana-oro.svg" alt=""><img class="div-shell" src="concha-perla.png" alt=""></div>
+        </div>
+        <section class="aviso-section has-deco">
+            <img class="deco deco-tl deco-sm" src="deco-estrella-oro.png" alt="" aria-hidden="true">
+            <img class="deco deco-br" src="deco-caracol.png" alt="" aria-hidden="true">
+            <div class="aviso-container">
+                <h2 class="section-title">Ten en Cuenta</h2>
+                <p class="aviso-lead">¡Celebramos a la orilla del mar!</p>
+                <div class="aviso-items">
+                    <div class="aviso-item">
+                        <div class="aviso-icon" aria-hidden="true">
+                            <svg viewBox="0 0 64 64" width="56" height="56" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 6v12c0 4 3 7 6 9l-6 9c-2 3-3 7-3 11v11h26V47c0-4-1-8-3-11l-6-9c3-2 6-5 6-9V6"/>
+                                <path d="M19 52c8-4 18-4 26 0"/>
+                                <path d="M28 27h8"/>
+                            </svg>
+                        </div>
+                        <span>Traje de baño</span>
+                    </div>
+                    <div class="aviso-item">
+                        <div class="aviso-icon" aria-hidden="true">
+                            <svg viewBox="0 0 64 64" width="56" height="56" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M24 8l-14 7 5 11 6-3v33h22V23l6 3 5-11-14-7c-1 4-5 7-8 7s-7-3-8-7z"/>
+                            </svg>
+                        </div>
+                        <span>Ropa cómoda</span>
+                    </div>
+                </div>
+                <p class="aviso-text">No olvides traer tu traje de baño y ropa cómoda para disfrutar de un día lleno de diversión, risas y momentos inolvidables.</p>
+            </div>
+        </section>
+
+        <!-- Gifts -->
+        <div class="section-divider" aria-hidden="true">
+            <div class="divider-art"><img class="div-fil" src="filigrana-oro.svg" alt=""><img class="div-shell" src="concha-perla.png" alt=""></div>
+        </div>
+        <section class="gifts-section has-deco">
+            <img class="deco deco-tr" src="deco-concha-rosa.png" alt="" aria-hidden="true">
+            <img class="deco deco-bl deco-sm" src="deco-estrella-verde.png" alt="" aria-hidden="true">
+            <div class="gifts-container">
+                <h2 class="section-title">Mesa de Regalos</h2>
+                <p class="section-subtitle">Tu presencia es mi mejor regalo. Si además deseas tener un detalle conmigo, puedes hacerlo aquí.</p>
+                
+                <div class="gift-icon modern-icon">
+                    <img src="icono-regalo-oro.png" alt="Regalo" class="icon-img">
+                </div>
+
+                <button class="btn-wedding" onclick="showGifts()">Ver más</button>
+            </div>
+        </section>
+
+        <!-- RSVP -->
+        <div class="section-divider" aria-hidden="true">
+            <div class="divider-art"><img class="div-fil" src="filigrana-oro.svg" alt=""><img class="div-shell" src="concha-perla.png" alt=""></div>
+        </div>
+        <section class="rsvp-section has-deco">
+            <img class="deco deco-tl deco-sm" src="deco-mariposa.png" alt="" aria-hidden="true">
+            <img class="deco deco-br" src="deco-coral.png" alt="" aria-hidden="true">
+            <div class="rsvp-container">
+                <h2 class="section-title">Confirma tu Asistencia</h2>
+                <p class="section-subtitle">Por favor confirma tu asistencia lo antes posible</p>
+                
+                <div class="whatsapp-icon modern-icon">
+                    <svg width="80" height="80" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="WhatsApp">
+                        <circle cx="24" cy="24" r="22" fill="#0F5C45"/>
+                        <g transform="translate(8 8)"><path d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 6.9L3 29l6.5-2c1.9 1 4.1 1.6 6.5 1.6 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.8-1.6l-.4-.2-3.9 1.2 1.2-3.7-.3-.4c-1.1-1.7-1.7-3.7-1.7-5.8C5.1 9.9 10 5.2 16 5.2s10.9 4.7 10.9 10.6S22 26.4 16 26.4zm6-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1c-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2s0-.5.1-.6l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.2 1.1-1.2 2.7 1.2 3.1 1.4 3.4c.2.2 2.4 3.6 5.8 5 .8.3 1.4.5 1.9.7.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z" fill="#FBF8F1"/></g>
+                    </svg>
+                </div>
+
+                <button class="btn-wedding btn-whatsapp" onclick="confirmAttendance()">
+                    <svg width="22" height="22" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 6.9L3 29l6.5-2c1.9 1 4.1 1.6 6.5 1.6 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.8-1.6l-.4-.2-3.9 1.2 1.2-3.7-.3-.4c-1.1-1.7-1.7-3.7-1.7-5.8C5.1 9.9 10 5.2 16 5.2s10.9 4.7 10.9 10.6S22 26.4 16 26.4zm6-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1c-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2s0-.5.1-.6l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.2 1.1-1.2 2.7 1.2 3.1 1.4 3.4c.2.2 2.4 3.6 5.8 5 .8.3 1.4.5 1.9.7.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z" fill="#fff"/></svg>
+                    Confirmar por WhatsApp
+                </button>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <div class="section-divider" aria-hidden="true">
+            <div class="divider-art"><img class="div-fil" src="filigrana-oro.svg" alt=""><img class="div-shell" src="concha-perla.png" alt=""></div>
+        </div>
+        <footer class="footer">
+            <div class="footer-content">
+                <img class="footer-fairy" src="hada-agua.png" alt="Hada del agua" loading="lazy">
+                <p>Con cariño,</p>
+                <h3>Nashley Isabel De León Rosario</h3>
+                <p class="footer-date">15 de Noviembre, 2026</p>
+            </div>
+        </footer>
+        </div>
+
+        <!-- Modal Dress Code -->
+        <div id="dresscodeModal" class="modal-overlay" onclick="closeDressCodeModal(event)">
+            <div class="dresscode-modal" onclick="event.stopPropagation()">
+                <button class="modal-close" onclick="closeDressCodeModal()" aria-label="Cerrar">&times;</button>
+                <h2 class="modal-title-dark">Código de Vestimenta</h2>
+                <p class="modal-text-dark"><strong>Formal</strong></p>
+                <p class="modal-text-dark">Por favor, no usar color rosa ni rojo</p>
+                <div class="dresscode-colors">
+                    <span class="color-dot" style="background:#f4a6c0;" title="No rosa"></span>
+                    <span class="color-dot" style="background:#e74c3c;" title="No rojo"></span>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Modal Mesa de Regalos -->
+        <div id="giftsModal" class="modal-overlay" onclick="closeGiftsModal()">
+            <div class="gifts-modal" role="dialog" aria-modal="true" aria-labelledby="giftsModalTitle" onclick="event.stopPropagation()">
+                <button class="modal-close" onclick="closeGiftsModal()" aria-label="Cerrar">&times;</button>
+                <h2 class="gifts-modal-title" id="giftsModalTitle">Mesa de Regalos</h2>
+                <p class="gifts-modal-text">Gracias por acompañarme en este día tan especial.</p>
+                <div class="gift-card">
+                    <div class="gift-label">Banco</div>
+                    <div class="gift-value">Banreservas</div>
+                    <div class="gift-sep"></div>
+                    <div class="gift-label">A nombre de</div>
+                    <div class="gift-value">Patricia Manzueta</div>
+                    <div class="gift-sep"></div>
+                    <div class="gift-label">Número de cuenta</div>
+                    <div class="gift-account-row">
+                        <span class="gift-account" id="giftAccount">9606813258</span>
+                        <button class="btn-copy-icon" onclick="copyAccount()" aria-label="Copiar" title="Copiar">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <rect x="9" y="9" width="12" height="12" rx="2.5"/>
+                                <path d="M5 15H4.5A1.5 1.5 0 0 1 3 13.5v-9A1.5 1.5 0 0 1 4.5 3h9A1.5 1.5 0 0 1 15 4.5V5"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <button class="btn-modal-secondary" onclick="closeGiftsModal()">Cerrar y continuar</button>
+                <p class="gift-thanks">¡Gracias por tanto cariño!</p>
+            </div>
+        </div>
+
+        <!-- Destellos dorados y rosados + burbujas -->
+        <canvas id="sparkles" aria-hidden="true"></canvas>
+
+        <!-- Toast notification -->
+        <div id="toast" class="toast">
+            <div id="toastContent"></div>
+        </div>
+
+        <script>
+        (function() {
+            try {
+                if ('caches' in window) {
+                    caches.keys().then(keys => keys.forEach(k => caches.delete(k))).catch(() => {});
+                }
+                if ('serviceWorker' in navigator) {
+                    navigator.serviceWorker.getRegistrations().then(regs => regs.forEach(r => r.unregister())).catch(() => {});
+                }
+            } catch(e) {}
+        })();
+        </script>
+        <script src="JAVAB.js?v=32" defer></script>
+</body>
+</html>
